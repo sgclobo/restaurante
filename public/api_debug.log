@@ -1,0 +1,161 @@
+2026-02-14 03:56:27 Order Request: Array
+(
+    [cart] => Array
+        (
+            [7] => Array
+                (
+                    [productId] => 7
+                    [variantId] => 
+                    [name] => Iced Tea
+                    [price] => 2.5
+                    [qty] => 1
+                )
+
+            [9] => Array
+                (
+                    [productId] => 9
+                    [variantId] => 
+                    [name] => Ice Cream
+                    [price] => 4
+                    [qty] => 1
+                )
+
+            [12_8] => Array
+                (
+                    [productId] => 12
+                    [variantId] => 8
+                    [name] => Pizza (Small (10"))
+                    [price] => 8.99
+                    [qty] => 1
+                )
+
+        )
+
+    [customerName] => Sergio Lobo
+    [orderType] => dine_in
+    [table] => 4
+)
+
+2026-02-14 03:59:29 Order Request: Array
+(
+    [cart] => Array
+        (
+            [7] => Array
+                (
+                    [productId] => 7
+                    [variantId] => 
+                    [name] => Iced Tea
+                    [price] => 2.5
+                    [qty] => 1
+                )
+
+            [4_11] => Array
+                (
+                    [productId] => 4
+                    [variantId] => 11
+                    [name] => Cheeseburger (Single)
+                    [price] => 9.99
+                    [qty] => 1
+                )
+
+            [6_13] => Array
+                (
+                    [productId] => 6
+                    [variantId] => 13
+                    [name] => Nasi Goreng (Regular)
+                    [price] => 8
+                    [qty] => 1
+                )
+
+        )
+
+    [customerName] => Eulalia Pereira
+    [orderType] => takeaway
+    [table] => 
+)
+
+2026-02-14 04:02:34 Order Request: Array
+(
+    [cart] => Array
+        (
+            [5] => Array
+                (
+                    [productId] => 5
+                    [variantId] => 
+                    [name] => Fried Chicken
+                    [price] => 12.5
+                    [qty] => 1
+                )
+
+            [7] => Array
+                (
+                    [productId] => 7
+                    [variantId] => 
+                    [name] => Iced Tea
+                    [price] => 2.5
+                    [qty] => 1
+                )
+
+            [9] => Array
+                (
+                    [productId] => 9
+                    [variantId] => 
+                    [name] => Ice Cream
+                    [price] => 4
+                    [qty] => 1
+                )
+
+            [11_6] => Array
+                (
+                    [productId] => 11
+                    [variantId] => 6
+                    [name] => Burger (Single)
+                    [price] => 5.99
+                    [qty] => 1
+                )
+
+        )
+
+    [customerName] => Eulalia
+    [orderType] => takeaway
+    [table] => 
+)
+
+2026-02-15 10:29:44 Order Request: Array
+(
+    [cart] => Array
+        (
+            [5] => Array
+                (
+                    [productId] => 5
+                    [variantId] => 
+                    [name] => Iced Coca-Cola
+                    [price] => 1
+                    [qty] => 1
+                )
+
+            [2_1] => Array
+                (
+                    [productId] => 2
+                    [variantId] => 1
+                    [name] => Ice Cream (Vanila)
+                    [price] => 2
+                    [qty] => 1
+                )
+
+            [4_4] => Array
+                (
+                    [productId] => 4
+                    [variantId] => 4
+                    [name] => Nasi Goreng (Egg)
+                    [price] => 2
+                    [qty] => 1
+                )
+
+        )
+
+    [customerName] => Fabiola Lobo
+    [orderType] => dine_in
+    [table] => 2
+)
+
