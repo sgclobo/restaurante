@@ -159,3 +159,50 @@
     [table] => 2
 )
 
+2026-02-16 08:09:18 Order Request: Array
+(
+    [cart] => Array
+        (
+            [5] => Array
+                (
+                    [productId] => 5
+                    [variantId] => 
+                    [name] => Iced Coca-Cola
+                    [price] => 1
+                    [qty] => 1
+                )
+
+            [7] => Array
+                (
+                    [productId] => 7
+                    [variantId] => 
+                    [name] => Iced Tea
+                    [price] => 1
+                    [qty] => 1
+                )
+
+            [2_1] => Array
+                (
+                    [productId] => 2
+                    [variantId] => 1
+                    [name] => Ice Cream (Vanila)
+                    [price] => 2
+                    [qty] => 1
+                )
+
+            [8_7] => Array
+                (
+                    [productId] => 8
+                    [variantId] => 7
+                    [name] => Pizza (Small)
+                    [price] => 10
+                    [qty] => 1
+                )
+
+        )
+
+    [customerName] => Roselia Fecundo
+    [orderType] => dine_in
+    [table] => 2
+)
+

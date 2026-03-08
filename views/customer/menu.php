@@ -26,6 +26,54 @@
         #cart-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #ccc; padding: 15px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); display: none; }
         #cart-total { font-weight: bold; font-size: 1.2em; }
         #checkout-btn { background: #e74c3c; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-size: 1em; }
+
+        /* Tab Styles */
+        .tab-nav {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            background: #fff;
+            padding: 10px 0;
+            border-bottom: 2px solid #ddd;
+            position: sticky;
+            top: 72px; /* Approx header height */
+            z-index: 90;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .tab-nav::-webkit-scrollbar { display: none; }
+        .tab-nav { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            color: #666;
+            margin: 0 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .tab-btn:hover { color: #2ecc71; }
+        .tab-btn.active {
+            border-bottom-color: #2ecc71;
+            color: #2ecc71;
+            font-weight: bold;
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
@@ -47,10 +95,24 @@
         <button id="manual-reset-btn" onclick="resetOrder()" style="display:none; margin-top:10px; padding:8px 15px; background:#2ecc71; color:white; border:none; border-radius:4px; cursor:pointer;">Place New Order</button>
     </div>
 
+    <!-- Tab Navigation -->
+    <div class="tab-nav">
+        <?php $isFirst = true; ?>
+        <?php foreach ($menu as $catId => $category): ?>
+            <?php if (!empty($category['products'])): ?>
+                <button class="tab-btn <?= $isFirst ? 'active' : '' ?>" onclick="openCategory(event, 'cat-<?= $catId ?>')">
+                    <?= htmlspecialchars($category['name']) ?>
+                </button>
+                <?php $isFirst = false; ?>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </div>
+
+    <!-- Tab Content -->
+    <?php $isFirst = true; ?>
     <?php foreach ($menu as $catId => $category): ?>
         <?php if (!empty($category['products'])): ?>
-            <div class="category">
-                <h2><?= htmlspecialchars($category['name']) ?></h2>
+            <div id="cat-<?= $catId ?>" class="tab-content <?= $isFirst ? 'active' : '' ?>">
                 <?php foreach ($category['products'] as $product): ?>
                     <div class="product" data-id="<?= $product['id'] ?>" data-base-price="<?= $product['price'] ?>">
                         <?php if (!empty($product['image_path'])): ?>
@@ -83,6 +145,7 @@
                     </div>
                 <?php endforeach; ?>
             </div>
+            <?php $isFirst = false; ?>
         <?php endif; ?>
     <?php endforeach; ?>
 </div>
@@ -124,6 +187,20 @@
 </div>
 
 <script>
+    function openCategory(evt, catId) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].classList.remove("active");
+        }
+        tablinks = document.getElementsByClassName("tab-btn");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove("active");
+        }
+        document.getElementById(catId).classList.add("active");
+        if (evt) evt.currentTarget.classList.add("active");
+    }
+
     let cart = {};
     const currency = '<?= $currency ?>';
     
